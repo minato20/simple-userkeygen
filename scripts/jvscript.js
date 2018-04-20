@@ -24,7 +24,6 @@ jQuery(document).ready()
                  if(mail.val() === item.email)
                  {         
 					 macle = "ta clé est : "+ item.key;
-					 console.log(macle);
 					 return false;
                  }
 				 else
