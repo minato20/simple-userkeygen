@@ -12,7 +12,7 @@ $result = $db->prepare("SELECT user FROM comptes WHERE email='".$mail."'");
 $result->execute();
 $data = $result->fetchAll()[0];
 $json_result["valid"] = count($data)!=0?1:0;
-$json_result["username"] = $data["user"];
+$json_result["username"] = count($data)!=0?$data["user"]:"no-user";
 print(json_encode($json_result));
 }
 ?>
