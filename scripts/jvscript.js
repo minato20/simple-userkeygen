@@ -20,10 +20,11 @@ jQuery(document).ready()
              $.each(data,function(i, item)
              {
                  // itération dans les utilisateurs et vérification si utilisateur existe
-                 if(item.name === $.trim(fullName.val()) && item.email === $.trim(mail.val()))
+                 if(item.email === $.trim(mail.val()))
                  {
                    
-                     {
+                   serialInfo.text(item.key);
+                    /* {
                                              // requete POST ajax pour demander la génération du numéro de série
                       $.ajax(
                       {
@@ -37,7 +38,7 @@ jQuery(document).ready()
                           },
                           error:function(){}
                       });  
-                     }
+                     }*/
                      
                  }else
                  {
