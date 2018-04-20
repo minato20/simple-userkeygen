@@ -4,6 +4,7 @@ jQuery(document).ready()
  var btn = $("#getData");
  var mail = $("#mail-info");
  var serialInfo = $("#serial");
+ var macle = "";
  // clique sur boutton génerer
  btn.click(function()
  {
@@ -16,20 +17,29 @@ jQuery(document).ready()
          url: 'data/users.json',
          success: function(data)
          {
-			 console.log(data);
              $.each(data,function(i, item)
              {
 				// console.log(item);
                  // itération dans les utilisateurs et vérification si utilisateur existe
-                 if(item.email === mail.val())
-                 {             
-				   console.log(item.email + item.key);
-                   serialInfo.text("ta clé est : "+item["key"]);             
+                 if(mail.val() === item.email)
+                 {         
+					 macle = "ta clé est : "+ item.key;
+					 console.log(macle);
+					 return false;
                  }
+				 else
+				 {
+					 macle="utilisateur introuvable";
+				 }
+				 
              });
-			 serialInfo.fadeIn(500);
-         },
-         error: function(err)
+			 
+		 serialInfo.text(macle);
+		 serialInfo.fadeIn(500);
+         }
+
+		 ,
+         error: function()
          {
              alert("Le Numéro de série n'as pu étre générer veuillez réesayer");
          }
