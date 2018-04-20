@@ -1,3 +1,4 @@
+"use strict";
 jQuery(document).ready()
 {
  // variables   
@@ -35,8 +36,7 @@ jQuery(document).ready()
 			 
 		 serialInfo.text(macle);
 		 serialInfo.fadeIn(500);
-         }
-
+          }
 		 ,
          error: function()
          {
